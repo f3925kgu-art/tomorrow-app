@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="glass card-soft p-4 p-lg-5 mb-4">
+  <div class="kicker mb-2">Your idea vault</div>
+  <div class="hero-title mb-2">明日やろうでも、ええやろう。</div>
+  <p class="hero-sub mb-0">
+    今日は書くだけ。未来のあなたが拾えばいい。
+  </p>
+</div>
+
+<div class="row g-4">
+  <div class="col-lg-4">
+    <div class="glass card-soft p-4 h-100">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="fw-bold"><i class="bi bi-plus-circle me-2"></i>妄想を追加</div>
+        <span class="badge badge-soft">ログイン中</span>
+      </div>
+
+      <form method="POST" action="{{ url_for('add') }}" class="vstack gap-3">
+        <div>
+          <label class="form-label small-muted">タイトル</label>
+          <input name="title" class="form-control input-dark py-2" placeholder="例：週末に1人旅する">
+        </div>
+
+        <div>
+          <label class="form-label small-muted">メモ（任意）</label>
+          <textarea name="memo" class="form-control input-dark" rows="4" placeholder="いつかやる自分に、ヒントを残す…"></textarea>
+        </div>
+
+        <button class="btn btn-brand btn-lg">
+          <i class="bi bi-stars me-1"></i>ストックする
+        </button>
+
+        <div class="small-muted">
+          Tips：小さくてもOK。「思いついた」だけで勝ち。
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-lg-8">
+    <div class="d-flex align-items-center justify-content-between mb-2">
+      <div class="fw-bold"><i class="bi bi-collection me-2"></i>たまった妄想</div>
+      <div class="small-muted">{{ ideas|length }} items</div>
+    </div>
+
+    {% if ideas|length == 0 %}
+      <div class="glass card-soft p-4">
+        <div class="d-flex gap-3 align-items-start">
+          <i class="bi bi-emoji-smile fs-3"></i>
+          <div>
+            <div class="fw-semibold">まだ0件。</div>
+            <div class="small-muted">左のフォームから1個入れると、世界が始まる。</div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="vstack gap-3">
+      {% for idea in ideas %}
+        <div class="glass card-soft p-4 idea-card">
+          <div class="d-flex justify-content-between align-items-start gap-3">
+            <div>
+              <div class="fw-bold fs-5">{{ idea.title }}</div>
+              {% if idea.memo %}
+                <div class="small-muted mt-1">{{ idea.memo }}</div>
+              {% else %}
+                <div class="small-muted mt-1">（メモなし）</div>
+              {% endif %}
+            </div>
+            <div class="badge badge-soft px-3 py-2">
+              <i class="bi bi-bookmark-heart me-1"></i>Stock
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

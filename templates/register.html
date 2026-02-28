@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row g-4 align-items-stretch">
+  <div class="col-lg-6">
+    <div class="glass card-soft p-4 p-lg-5 h-100">
+      <div class="kicker mb-2">Start here</div>
+      <div class="hero-title mb-2">新規登録</div>
+      <p class="hero-sub mb-4">ニックネームとIDだけ。個人情報いりません。</p>
+
+      <form method="POST" class="vstack gap-3">
+        <div>
+          <label class="form-label small-muted">ログインID（あとでログインに使う）</label>
+          <input name="login_id" class="form-control input-dark py-2" placeholder="例：tomorrow123">
+        </div>
+
+        <div>
+          <label class="form-label small-muted">ニックネーム（表示名）</label>
+          <input name="nickname" class="form-control input-dark py-2" placeholder="例：ともろう">
+        </div>
+
+        <div>
+          <label class="form-label small-muted">パスワード</label>
+          <input name="password" type="password" class="form-control input-dark py-2" placeholder="••••••••">
+        </div>
+
+        <button class="btn btn-brand btn-lg mt-2">
+          <i class="bi bi-person-plus me-1"></i>登録する
+        </button>
+
+        <div class="small-muted">
+          すでにアカウントある？ <a href="{{ url_for('login') }}">ログインへ</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="glass card-soft p-4 p-lg-5 h-100">
+      <div class="kicker mb-3">Promise</div>
+      <h3 class="fw-bold mb-2">このアプリは急かさない。</h3>
+      <p class="hero-sub mb-4">
+        “やる気”より先に “記録”。<br>
+        いつかのタイミングで、1個だけ拾えれば十分。
+      </p>
+
+      <div class="glass p-3 rounded-4">
+        <div class="d-flex gap-3 align-items-start">
+          <i class="bi bi-journal-text fs-4"></i>
+          <div>
+            <div class="fw-semibold">妄想は資産</div>
+            <div class="small-muted">積み上げた分だけ、未来の選択肢が増える。</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="hr-soft my-4">
+
+      <div class="small-muted">
+        ※ パスワードは安全な形（ぐちゃぐちゃ化）で保存します。
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row g-4 align-items-stretch">
+  <div class="col-lg-6">
+    <div class="glass card-soft p-4 p-lg-5 h-100">
+      <div class="kicker mb-2">Welcome back</div>
+      <div class="hero-title mb-2">ログイン</div>
+      <p class="hero-sub mb-4">妄想を、積み上げていこう。</p>
+
+      <form method="POST" class="vstack gap-3">
+        <div>
+          <label class="form-label small-muted">ログインID</label>
+          <input name="login_id" class="form-control input-dark py-2" placeholder="例：tomorrow123">
+        </div>
+
+        <div>
+          <label class="form-label small-muted">パスワード</label>
+          <input name="password" type="password" class="form-control input-dark py-2" placeholder="••••••••">
+        </div>
+
+        <button class="btn btn-brand btn-lg mt-2">
+          <i class="bi bi-arrow-right-circle me-1"></i>ログインする
+        </button>
+
+        <div class="small-muted">
+          はじめて？ <a href="{{ url_for('register') }}">新規登録へ</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="glass card-soft p-4 p-lg-5 h-100">
+      <div class="kicker mb-3">Concept</div>
+      <h3 class="fw-bold mb-2">“明日やろう”でもいい。</h3>
+      <p class="hero-sub mb-4">
+        行動が遅い日があってもOK。<br>
+        思いつきを「資産」に変える、妄想ストック。
+      </p>
+
+      <div class="row g-3">
+        <div class="col-12">
+          <div class="glass p-3 rounded-4">
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-stars fs-4"></i>
+              <div>
+                <div class="fw-semibold">否定しない設計</div>
+                <div class="small-muted">やれない自分を責めない。書けた自分を褒める。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="glass p-3 rounded-4">
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-lightning-charge fs-4"></i>
+              <div>
+                <div class="fw-semibold">最小の一歩</div>
+                <div class="small-muted">いつかの自分が「やってみる」きっかけになる。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="glass p-3 rounded-4">
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-shield-lock fs-4"></i>
+              <div>
+                <div class="fw-semibold">ログインで守る</div>
+                <div class="small-muted">あなたの妄想は、あなたにだけ。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
